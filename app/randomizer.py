@@ -3,7 +3,9 @@ from pydantic import BaseModel, Field
 from fastapi.middleware.cors import CORSMiddleware
 import json
 from datetime import datetime
+
 app = FastAPI()
+
 origins = [
     "http://localhost/",
     "http://localhost:8080/",
@@ -19,8 +21,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-with open('orders.json') as file:
-    orders = json.load(file)
+try:
+    with open('orders.json') as json_file:
+        orders = json.load(json_file)
+except json.decoder.JSONDecodeError:
+    with open('orders.json', 'w') as outfile:
+        orders = []
+        json.dump(orders, outfile)
 
 class Order(BaseModel):
     first_name: str
