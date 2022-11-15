@@ -1,9 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 from fastapi.middleware.cors import CORSMiddleware
-import json
 from datetime import datetime
-import os
 
 app = FastAPI()
 origins = [
@@ -21,14 +19,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-if os.path.exists("orders.json"):
-    with open('orders.json') as file:
-        orders = json.load(file)
-else:
-    with open('orders.json', "w") as file:
-        json.dump("[]", file)
-        orders = []
-        
+orders = []
+
 class Order(BaseModel):
     first_name: str
     last_name: str
@@ -40,14 +32,26 @@ async def create_order(item: Order):
     order["orderedAt"] = datetime.utcnow().strftime("%d/%m/%Y %H:%M:%S")
     order.update(item.dict())
     orders.append(order)
-    with open("orders.json", "w") as file:
-        json.dump(orders, file)
     return orders[orderid]
 
 @app.get("/orders/{id}")
 async def get_order(id: int):
-    return orders[id]
+    order = next((item for item in orders if item["OrderId"] == id), None)
+    if order != None:
+        return order
+    else:
+        raise HTTPException(status_code=404, detail="No order found with this ID")
 
 @app.get("/all_orders")
-async def get_allorder():
-    return orders
+async def get_allorder(user: str = None):
+    if len(orders) < 0:
+        raise HTTPException(status_code=404, detail="No orders found")
+    else:
+        if user is not None:
+            list = []
+            for i in orders:
+                if i["first_name"] == user:
+                    list.append(i)
+            return list
+        else:
+            return orders
