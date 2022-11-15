@@ -1,8 +1,21 @@
 from fastapi import FastAPI
-from random import randint
 
 app = FastAPI()
 
-@app.get("/percentage")
-async def get_random_percentage():
-    return {'percentage': randint(0, 100)}
+class Order(BaseModel):
+    first_name: str
+    last_name: str
+    street: str
+    addition: str | None = None
+    zipcode: int
+    city: str
+
+@app.post("/order")
+async def create_item(item: Order):
+    number = len(cards)
+    cards[number] = item.dict()
+    return cards[number]
+
+@app.get("/orders")
+async def create_item():
+    return cards
