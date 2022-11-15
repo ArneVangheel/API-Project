@@ -3,8 +3,6 @@ from pydantic import BaseModel, Field
 from fastapi.middleware.cors import CORSMiddleware
 import json
 from datetime import datetime
-import os
-print(os.getcwd())
 app = FastAPI()
 origins = [
     "http://localhost/",
