@@ -5,9 +5,12 @@ import json
 from datetime import datetime
 import os
 
-if os.path.isfile("orders.json"):
-   print("File exists")
-
+import os
+if os.path.exists("orders.json"):
+    with open('orders.json') as file:
+        orders = json.load(file)
+else:
+    f = file("orders.json", "w")
 app = FastAPI()
 origins = [
     "http://localhost/",
@@ -24,8 +27,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-with open('./orders.json') as file:
-    orders = json.load(file)
 
 class Order(BaseModel):
     first_name: str
