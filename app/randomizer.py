@@ -5,7 +5,6 @@ import json
 from datetime import datetime
 import os
 
-import os
 if os.path.exists("orders.json"):
     with open('orders.json') as file:
         orders = json.load(file)
