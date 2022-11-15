@@ -19,5 +19,5 @@ async def create_order(item: Order):
     return orders[orderid]
 
 @app.get("/orders")
-async def get_orders(id: int):
+async def get_orders():
     return orders
