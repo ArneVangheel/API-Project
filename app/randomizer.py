@@ -3,6 +3,22 @@ from pydantic import BaseModel, Field
 import json
 
 app = FastAPI()
+origins = [
+    "http://localhost/",
+    "http://localhost:8080/",
+    "https://localhost.tiangolo.com/",
+    "http://127.0.0.1:5500/",
+    "https://arnevangheel.github.io/"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=[""],
+    allow_headers=[""],
+)
+
 orders = {}
 class Order(BaseModel):
     first_name: str
