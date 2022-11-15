@@ -1,8 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
-
 app = FastAPI()
-
+cards = {}
 class Order(BaseModel):
     first_name: str
     last_name: str
@@ -19,4 +18,4 @@ async def create_item(item: Order):
 
 @app.get("/orders")
 async def create_item():
-    return cards
+    return {"cards": cards}
