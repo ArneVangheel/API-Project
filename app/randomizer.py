@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel, Field
 from fastapi.middleware.cors import CORSMiddleware
 import json
+from datetime import datetime
 
 app = FastAPI()
 origins = [
@@ -19,22 +20,29 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+with open('orders.json') as file:
+    orders = json.load(file)
 
-orders = {}
 class Order(BaseModel):
     first_name: str
     last_name: str
-    street: str
-    addition: str | None = None
-    zipcode: int
-    city: str
+
 
 @app.post("/order")
 async def create_order(item: Order):
     orderid = len(orders)
-    orders[orderid] = item.dict()
+    order = {"OrderId": orderid}
+    order["orderedAt"] = datetime.utcnow().strftime("%d/%m/%Y %H:%M:%S")
+    order.update(item.dict())
+    orders.append(order)
+    with open("orders.json", "w") as file:
+        json.dump(orders, file)
     return orders[orderid]
 
-@app.get("/orders")
-async def get_orders():
+@app.get("/orders/{id}")
+async def get_order(id: int):
+    return orders[id]
+
+@app.get("/all_orders")
+async def get_allorder():
     return orders
