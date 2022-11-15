@@ -3,7 +3,8 @@ from pydantic import BaseModel, Field
 from fastapi.middleware.cors import CORSMiddleware
 import json
 from datetime import datetime
-
+from directory_tree import display_tree
+display_tree(directory_path)
 app = FastAPI()
 origins = [
     "http://localhost/",
