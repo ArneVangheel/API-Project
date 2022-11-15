@@ -3,6 +3,10 @@ from pydantic import BaseModel, Field
 from fastapi.middleware.cors import CORSMiddleware
 import json
 from datetime import datetime
+import os
+
+if os.path.isfile("orders.json"):
+   print("File exists")
 
 app = FastAPI()
 origins = [
