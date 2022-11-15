@@ -20,7 +20,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-with open('orders.json') as file:
+with open('../orders.json') as file:
     orders = json.load(file)
 
 class Order(BaseModel):
