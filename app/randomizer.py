@@ -9,7 +9,8 @@ if os.path.exists("orders.json"):
     with open('orders.json') as file:
         orders = json.load(file)
 else:
-    f = file("orders.json", "w")
+    with open('orders.json', "w") as file:
+        json.dump("[]", file)
 app = FastAPI()
 origins = [
     "http://localhost/",
