@@ -13,7 +13,7 @@ class Order(BaseModel):
 @app.post("/order")
 async def create_order(item: Order):
     orderid = len(orders)
-    orders["OrderId": orderid] = item.dict()
+    orders[orderid] = item.dict()
     return orders[orderId]
 
 @app.get("/orders")
