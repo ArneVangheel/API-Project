@@ -25,6 +25,7 @@ orders = []
 class Order(BaseModel):
     first_name: str
     last_name: str
+    product: str
 
 @app.post("/order")
 async def create_order(item: Order):
