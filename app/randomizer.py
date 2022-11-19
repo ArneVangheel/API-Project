@@ -32,6 +32,7 @@ async def create_order(item: Order):
     orderid = len(orders)
     order = {"OrderId": orderid}
     order["orderedAt"] = datetime.utcnow().strftime("%d/%m/%Y %H:%M:%S")
+    order["status"] = "Processing"
     order.update(item.dict())
     orders.append(order)
     return orders[orderid]
