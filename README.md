@@ -15,6 +15,19 @@ Hiervoor heb ik gebruik gemaakt van 1 post 2 get.
 * Front-End Links
     * [Front-End Repository](https://github.com/ArneVangheel/ArneVangheel.github.io)
     * [Hosted Front-End ](https://arnevangheel.github.io/)
+## Postman (API Testing)
+> GET "/orders/{id}" laat informatie over 1 bepaald order zien aan de hand van een orderid.
+
+![image](https://user-images.githubusercontent.com/94957070/202862989-4309ebd3-2e57-41c3-b21f-03c5a8c855a1.png)
+
+> GET "/all_orders" geeft all orders weer.
+
+![image](https://user-images.githubusercontent.com/94957070/202863091-29287ac0-482a-4465-acdd-b231a425a4d3.png)
+
+> POST "/order" maak een bestelling aan.
+![image](https://user-images.githubusercontent.com/94957070/202863134-1f799119-51b4-4920-9c2d-9b79d1dae142.png)
+
+
 
 ## Website
 Ook is het mogelijk om op de website gebruik te maken van een user filter.
