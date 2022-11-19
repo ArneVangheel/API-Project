@@ -17,7 +17,8 @@ Hiervoor heb ik gebruik gemaakt van 1 post 2 get.
     * [Hosted Front-End ](https://arnevangheel.github.io/)
     
 ## OpenAPI Docs Screenshots
-![image](https://user-images.githubusercontent.com/94957070/202856541-bdc1153c-14cd-40a2-95da-428fc935b6a0.png)
-![image](https://user-images.githubusercontent.com/94957070/202856580-fa7776cb-0174-4c65-b301-2eadce93ba77.png)
-![image](https://user-images.githubusercontent.com/94957070/202856596-20c3f872-268c-4548-a7db-58b63ed1b777.png)
+![image](https://user-images.githubusercontent.com/94957070/202858157-0b42e118-56f2-4f90-93ec-5c0f0ab79467.png)
+![image](https://user-images.githubusercontent.com/94957070/202858168-447aa8ab-eb05-47f0-86ca-fcdeb8427588.png)
+![image](https://user-images.githubusercontent.com/94957070/202858180-eac7f35e-bb31-457a-947d-d8c9b5403f0d.png)
+
 
