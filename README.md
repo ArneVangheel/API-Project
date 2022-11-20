@@ -38,3 +38,9 @@ Ook is het mogelijk om op de website gebruik te maken van een user filter.
 Hierbij kunnen we orders gaan filter op voornaam.
 ![image](https://user-images.githubusercontent.com/94957070/202862938-d7f803b4-c9f0-47c1-a46f-be0aa9b8b31e.png)
 
+Op deze pagina kan je een bestelling maken, als je deze indient krijg je een orderid die je kan gebruiken om informatie te vinden over je order.
+![image](https://user-images.githubusercontent.com/94957070/202896662-51318522-6741-4e66-b36f-6f422cf0369f.png)
+
+Hier krijg je meer informatie over je bestelling.
+![image](https://user-images.githubusercontent.com/94957070/202896676-67ff6f1a-8748-439b-8dc0-4a7594e32fbe.png)
+
